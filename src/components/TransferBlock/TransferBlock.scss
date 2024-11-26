@@ -1,0 +1,59 @@
+.TransferWrapper{
+    border-radius: 5px;
+    width: 232px;
+    height: 252px;
+
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    background: #fff;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input{
+    margin-right: 10px;
+}
+
+.TransferHeader{
+margin-top: 20px;
+margin-bottom: 20px;
+font-family: var(--font-family);
+font-weight: 600;
+font-size: 12px;
+
+/* line-height: 12px; */ 
+line-height: 100%;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+color: #4a4a4a;
+}
+
+.TransferBlock {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; 
+}
+
+.TransferBlock__Item{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+    width: 142px;
+    height: 20px;
+
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 13px;
+    
+    /* line-height: 20px; */ 
+    line-height: 154%;
+    color: #4a4a4a;
+
+    
+    &:hover{
+        background: #f1fcff;
+    }
+}

@@ -1,0 +1,35 @@
+.ticketFilter_wrapper{
+    width: 502px;
+    height: 50px;
+
+    display: flex;
+    :first-child{
+        color: #fff;  
+      background-color:#2196F3;
+    }
+
+}
+
+.ticketFilter_item{
+font-family: "Open Sans", sans-serif;
+font-weight: 600;
+font-size: 12px;
+
+/* line-height: 20px; */ 
+line-height: 167%;
+letter-spacing: 0.04em;
+text-transform: uppercase;
+text-align: center;
+
+padding: 15px;
+
+border: 1px solid #d3d9de;
+
+
+& .active{
+  color: #fff;  
+  background-color:#2196F3;
+}
+
+
+}
