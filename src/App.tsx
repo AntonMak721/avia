@@ -4,13 +4,15 @@ import TicketFilter from './components/TicketFilter/TicketFilter'
 import './App.css'
 import Button from './components/Button/Button'
 
+
+
 function App() {
   return (
     <>
       <img id="logo" src="/Logo.png" alt="Logo" />
       <section className='container'>
         <TransferBlock />
-        <div>
+        <div >
           <TicketFilter />
           <TicketBlock />
           <Button/>

@@ -10,19 +10,19 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding: 20px;
 }
 
 input{
     margin-right: 10px;
 }
 
-.TransferHeader{
+.TransferBlock__Header{
 margin-top: 20px;
-margin-bottom: 20px;
 font-family: var(--font-family);
 font-weight: 600;
 font-size: 12px;
-
+text-transform: uppercase;
 /* line-height: 12px; */ 
 line-height: 100%;
 letter-spacing: 0.04em;
@@ -34,6 +34,9 @@ color: #4a4a4a;
     display: flex;
     flex-direction: column;
     justify-content: space-around; 
+    gap: 15px;
+    align-self: start;
+    
 }
 
 .TransferBlock__Item{

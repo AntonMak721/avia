@@ -3,7 +3,7 @@ const TransferBlock = () => {
     return (
         <div className="TransferWrapper">
             <h3 className='TransferBlock__Header'>Количество пересадок</h3>
-            {/* <div className='TransferBlock'> */}
+            <div className='TransferBlock'>
                 <div className='TransferBlock__Item'>
                     <input  type="checkbox" value={0} />
                     <p>Все</p>
@@ -24,7 +24,7 @@ const TransferBlock = () => {
                     <input type="checkbox" value={4} />
                     <p>3 пересадки</p>
                 </div> 
-            {/* </div> */}
+            </div>
             
              
         </div>
