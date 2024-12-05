@@ -1,23 +1,25 @@
+import React from 'react';
 import classes from './ticket.module.css';
+import { ITicket } from './../../types/AppTypes';
 
-const Ticket = () => {
+const Ticket:React.FC <ITicket>= (ticket) => {
     return (
         <div className={classes.ticket_wrapper}>
             <div className={classes.ticket_header}>
-                <p className={classes.ticket_info__price}>13 400 Р</p>
+                <p className={classes.ticket_info__price}>{ticket.price} руб.</p>
                 <img src="./S7 Logo.png" alt="" />
             </div>
             <div className={classes.ticket_info__wrapper}>
                 <div>
-                    <p className={classes.ticket_info__text}>MOW – HKT</p>
-                    <p>10:45 – 08:00</p>
+                    <p className={classes.ticket_info__text}>{ticket.origin} – {ticket.destination}</p>
+                    <p>{ticket.departure_time} – {ticket.arrival_time}</p>
                 </div>
                 <div>
                     <p className={classes.ticket_info__text}>В пути</p>
                     <p>21ч 15м</p>
                 </div>
                 <div>
-                    <p className={classes.ticket_info__text}>2 пересадки</p>
+                    <p className={classes.ticket_info__text}>{ticket.stops} пересадки</p>
                     <p>HKG, JNB</p>
                 </div>
             </div>
