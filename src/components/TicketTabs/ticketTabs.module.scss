@@ -4,9 +4,6 @@
     text-transform: uppercase;
     display: flex;
     :first-child{
-        color: #fff;  
-      background-color:#2196F3;
-      border: none;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px ;
     }
@@ -30,18 +27,15 @@ text-transform: uppercase;
 text-align: center;
 width: 100%;
 padding: 15px;
+cursor: pointer;
 
 border: 1px solid #dfe5ec;
 background-color: #fff;
 
-
-
-
-& .active{
-  color: #fff;  
-  background-color:#2196F3;
-  border: none;
 }
 
-
+.ticketTabs_item.active{
+  color: #fff;  
+  background-color:#2196F3!important;
+  border: none;
 }

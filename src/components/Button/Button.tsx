@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
+import classes from './Button.module.scss';
 
-import classes from './Button.module.css';
+type MyComponentProps = {
+    onClick: () => void;
+  };
 
-const Button = () => {
-
+const Button : React.FC<MyComponentProps>  = ({onClick}) => {
     const buttonText = 'Показать еще 5 билетов!';
     return (
-        <button className={classes.btn} type='button'>
+        <button onClick={onClick} className={classes.btn} type='button'>
             {buttonText}
         </button>
     );
