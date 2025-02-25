@@ -13,14 +13,21 @@ export default [
   pluginReact.configs.flat.recommended,
   eslintConfigPrettier, 
     {
+      settings: {
+        react: {
+          version: 'detect', 
+        },
+      },
       rules:{
         "@typescript-eslint/no-unused-vars": "off",
       "react/prop-types": "off",
       "react/react-in-jsx-scope": "off",
-      "@typescript-eslint/no-empty-object-type": "off", // remove
-      "no-prototype-builtins": "off", // explore
+      "@typescript-eslint/no-empty-object-type": "off", 
+      "no-prototype-builtins": "off", 
       "no-unused-vars": "warn",
       "no-undef": "warn",
+      "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
       }
      
     }

@@ -1,28 +1,26 @@
 import React,{ FC } from "react";
 import classes from './ticketTabs.module.scss';
+import { useUnit } from "effector-react";
+import { $ticketsSort } from "../../store/store";
+import { updateTicketsSort } from "../../store/events";
 
-interface Props {
-onSortTicketsLowPrice: () => void;
-onSortTicketsFastest: () => void;
-onSortTicketsOptima: () => void;
-sort: string;
+const TicketTabs: FC  = () => {
+    const sort = useUnit($ticketsSort)
+    const handleSort = useUnit(updateTicketsSort)
 
-}
-
-const TicketTabs: FC<Props>  = ({onSortTicketsLowPrice, onSortTicketsFastest, onSortTicketsOptima, sort}) => {
     return (
         <div className={classes.ticketTabs_wrapper} >
             <div 
                 className= {`${classes.ticketTabs_item} ${sort==='lowPrice'? classes.active:''}`} 
-                onClick={onSortTicketsLowPrice} 
+                onClick={ () => handleSort('lowPrice') } 
             >Самый дешевый</div>
             <div 
                 className= {`${classes.ticketTabs_item} ${sort==='fastest'? classes.active:''}`} 
-                onClick={onSortTicketsFastest} 
+                onClick={() => handleSort('fastest')} 
             >Самый быстрый</div>
             <div 
-            className= {`${classes.ticketTabs_item} ${sort==='optima'? classes.active:''}`} 
-            onClick={onSortTicketsOptima} 
+            className= {`${classes.ticketTabs_item} ${sort==='optimal'? classes.active:''}`} 
+            onClick={() => handleSort('optimal')} 
             >Оптимальный</div>
         </div>
     );

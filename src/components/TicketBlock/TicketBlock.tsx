@@ -4,6 +4,8 @@ import { ITicket } from './../../types/AppTypes';
 import Button from '../Button/Button';
 import classes from './ticketBlock.module.scss';
 
+
+
 interface Props {
     tickets: ITicket[];
   }
@@ -27,6 +29,7 @@ const TicketBlock:React.FC<Props> = ({tickets}) => {
             {tickets.length > visibleItems && (
                 <Button onClick={handleShowMore}/>
             )}
+            {/* {tickets.map(ticket => {return <Ticket {...ticket} key={ticket.link} />})} */}
         </div>
     );
 };
