@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Ticket from '../Ticket/Ticket'
 import { ITicket } from './../../types/AppTypes';
 import Button from '../Button/Button';
 import classes from './ticketBlock.module.scss';
+import { $visibleItems } from '../../store/store';
+import { useUnit } from 'effector-react';
+import { updateVisibleItems } from '../../store/events';
 
 
 
@@ -12,10 +15,13 @@ interface Props {
   
 
 const TicketBlock:React.FC<Props> = ({tickets}) => {
-    const [visibleItems, setVisibleItems] = useState(5);
+
+    const visibleItems = useUnit($visibleItems);
+    const visibleItemsUpdate = useUnit(updateVisibleItems);
+   
     const limitedData = tickets.slice(0, visibleItems);
     const handleShowMore = () => {
-      setVisibleItems(prev => prev + 5); 
+    visibleItemsUpdate(visibleItems + 5);
     };
   
     return (

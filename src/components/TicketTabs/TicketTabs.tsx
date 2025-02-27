@@ -1,4 +1,4 @@
-import React,{ FC } from "react";
+import { FC } from "react";
 import classes from './ticketTabs.module.scss';
 import { useUnit } from "effector-react";
 import { $ticketsSort } from "../../store/store";

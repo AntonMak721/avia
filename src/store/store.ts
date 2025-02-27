@@ -1,6 +1,6 @@
 import { ITicket } from '../types/AppTypes';
 import { createStore, combine } from 'effector'
-import { filterCanged, updateTickets, updateTicketsSort } from './events';
+import { filterCanged, updateTickets, updateTicketsSort, updateVisibleItems } from './events';
 
 export const $tickets = createStore<ITicket[]>([])
 .on(updateTickets, (_, tickets) => tickets);
@@ -8,8 +8,12 @@ export const $tickets = createStore<ITicket[]>([])
 export const $ticketsSort = createStore<'lowPrice' | 'fastest' | 'optimal'>('lowPrice');
 export const $ticketsFilter = createStore<'all'|'zero'|'1'|'2'|'3'>('all')
 
+export const $visibleItems = createStore<number>(5);
+
 $ticketsFilter.on(filterCanged, (_, filterName) =>filterName);
 $ticketsSort.on(updateTicketsSort, (_, sort) => sort);
+
+$visibleItems.on(updateVisibleItems, (_, visibleItems) => visibleItems);
 
 export const $filteredAndSortedTickets = combine(
     $tickets,
