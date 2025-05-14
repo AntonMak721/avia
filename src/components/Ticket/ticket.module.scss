@@ -21,6 +21,13 @@
     flex-direction: column;
     justify-content: space-around;
 
+    @media (max-width:830px) {
+        width: 100%;
+    }
+    @media (max-width:450px) {
+        font-size: 10px;
+    }
+
 }
 .ticket_header{
     display: flex;
@@ -33,7 +40,10 @@
     justify-content: left; 
     gap: 80px;
     align-items: left;
-
+    @media (max-width:830px) {
+        justify-content: space-between;
+        gap: 0;
+    }
     
     
 }
@@ -42,6 +52,9 @@
     /* line-height: 24px; */ 
     line-height: 100%;
     color: #2196f3;
+    @media (max-width:450px) {
+        font-size: 18px;
+    }
 }
 .ticket_info__text{
     font-size: 12px;

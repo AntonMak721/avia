@@ -25,7 +25,9 @@ const TicketBlock:React.FC<Props> = ({tickets}) => {
     };
   
     return (
-        <div>
+        <div >
+            <div  className={classes.TicketsWrapper}>
+
             {limitedData.map(ticket => {return <Ticket {...ticket} key={ticket.link} />})}
             {tickets.length < 1 && 
             <div className={classes.zeroTicketTitleWrapper}>
@@ -36,6 +38,7 @@ const TicketBlock:React.FC<Props> = ({tickets}) => {
                 <Button onClick={handleShowMore}/>
             )}
             {/* {tickets.map(ticket => {return <Ticket {...ticket} key={ticket.link} />})} */}
+            </div>
         </div>
     );
 };

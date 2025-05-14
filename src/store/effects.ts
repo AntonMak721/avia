@@ -1,15 +1,25 @@
-import {ITicket } from '../types/AppTypes';
+import {ITicket, IData } from '../types/AppTypes';
 import { createEffect } from 'effector';
 import { updateTickets } from './events';
 
-const token = 'token';
-const urlCORSAnyWhere = `http://localhost:8080/http://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=LED&destination=JFK&departure_at=2025-05-12&return_at=2025-05-27&unique=false&sorting=price&direct=false&currency=rub&limit=30&page=1&one_way=true&token=${token}`;
+const token = 'b1c5a5e8991f8d093a98039adf7414e5';
+const urlCORSAnyWhere = `http://localhost:8080/http://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=LED&destination=MOW&departure_at=2025-07-12&return_at=2025-07-27&unique=false&sorting=price&direct=false&currency=rub&limit=30&page=1&one_way=true&token=${token}`;
 
 export const fetchTicketsFx = createEffect<void, ITicket[]>(async () => {
-    const response = await fetch(urlCORSAnyWhere);
+    const response = await fetch(urlCORSAnyWhere, {
+        headers: {
+            "Accept": "application/json", // Явно запрашиваем JSON
+            'Content-Type': 'application/json',
+        },
+    });
+
+    const contentType = response.headers.get("Content-Type");
+    if (!contentType?.includes("application/json")) {
+        const errorData = await response.text(); // Читаем ответ как текст
+        throw new Error(`Expected JSON, got ${contentType}. Response: ${errorData.slice(0, 100)}...`);
+    }
     const jsonResponse = await response.json();
-    const data = jsonResponse.data;
-    return data;
+    return jsonResponse.data;
 });
 
 fetchTicketsFx.doneData.watch((tickets) => {
@@ -17,5 +27,5 @@ fetchTicketsFx.doneData.watch((tickets) => {
 });
 
 fetchTicketsFx.failData.watch((error) => {
-    console.log(error.message);
+    console.log(`ERROR __!!__: ${error.message}`);
 });

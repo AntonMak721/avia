@@ -26,7 +26,7 @@ export const App: React.FC = () => {
       <img id="logo" src="/Logo.svg" alt="Logo" />
       <section className='container'>
         <TransferBlock/>
-        <div >
+        <div className="TicketVisualization">
           <TicketTabs/>
           <TicketBlock tickets={filteredTickets} />
         </div>
