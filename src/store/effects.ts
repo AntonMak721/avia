@@ -2,7 +2,7 @@ import {ITicket, IData } from '../types/AppTypes';
 import { createEffect } from 'effector';
 import { updateTickets } from './events';
 
-const token = 'b1c5a5e8991f8d093a98039adf7414e5';
+const token = 'token';
 const urlCORSAnyWhere = `http://localhost:8080/http://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=LED&destination=MOW&departure_at=2025-07-12&return_at=2025-07-27&unique=false&sorting=price&direct=false&currency=rub&limit=30&page=1&one_way=true&token=${token}`;
 
 export const fetchTicketsFx = createEffect<void, ITicket[]>(async () => {
